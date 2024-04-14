@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js essentials</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- <form> -->
+          <table>
+            <tr>
+                <td>Product info</td>
+                <td>Quantity</td>
+                <td>Price (per Unit)</td>
+                <td>Price (subtotal)</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td><img src="https://images.freeimages.com/images/large-previews/aed/three-bees-on-sunflower-1337029.jpg">
+                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda, saepe.
+                </td>
+                <td><input oninput="hendleinput_1(this.value)" type="number" id="input_1"></td>
+                <td>$22.99</td>
+                <td id="Price_1">$</td>
+                <td><button onclick="btn0()">Remove</button></td>
+            </tr>
+            <tr>
+                <td><img src="https://images.freeimages.com/images/large-previews/77c/nemo-the-horse-1339807.jpg?fmt=webp&h=350">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Assumenda, saepe.
+                   </td>
+                   <td><input oninput="hendleinput_2(this.value)" type="number" id="input_2"></td>
+                   <td>$12.99</td>
+                   <td id="Price_2">$</td>
+                   <td><button onclick="btn()">Remove</button></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td id="total_price">$</td>
+                <td></td>
+            </tr>
+          </table>
+        <!-- </form -->
+    </div>
+    <script>
+        let input1 = document.getElementById("input_1")
+        let input2 = document.getElementById("input_2")
+
+        let pricedata_1 = document.getElementById("Price_1")
+        let pricedata_2 = document.getElementById("Price_2")
+        let total_price = document.getElementById("total_price")
+        
+        const hendleinput_1 = (e)=>{
+             let price_o =22.99
+            let f_price = e*price_o
+             pricedata_1.innerText = `$${f_price}`
+             total_price.innerText =  `$${(input1.value*22.99)+(input2.value*12.99)}`
+        }
+        
+        const hendleinput_2 = (value)=>{
+            let price_t  = 12.99
+            let f_price_o = value*price_t
+            pricedata_2.innerText= `$${f_price_o}`
+            total_price.innerText = `$${(input1.value*22.99)+(input2.value*12.99)}`
+        }
+
+
+        const btn0=(e)=>{
+            input1.value = ""
+            // input2.innerText= ""
+            pricedata_1.innerText = "$"
+            // pricedata_2.innerText= ""
+            total_price.innerText = "$"
+        }
+
+        const btn=()=>{
+            input2.innerText= ""
+            pricedata_2.innerText= "$"
+            total_price.innerText = "$"
+        }
+
+    </script>
+</body>
+</html>
